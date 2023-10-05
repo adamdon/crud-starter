@@ -27,7 +27,7 @@ jobs:
           node-version: '18' # Adjust to your Node.js version
 
       - name: Install application dependencies
-        run: npm install
+        run: npm install -C backend
         with:
           path: backend
 
