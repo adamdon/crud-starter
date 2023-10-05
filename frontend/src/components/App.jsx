@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
-import {toast, ToastContainer} from "react-toastify";
-import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
+import {Flip, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {useData} from "../utilities/DataContextProvider.jsx";
 import HomePage from "./pages/home/HomePage.jsx";
 import Navbar from "./layout/Navbar.jsx";
 import {Route, Routes} from "react-router-dom";
 import AboutPage from "./pages/about/AboutPage.jsx";
+
+
 
 
 export default function App() {

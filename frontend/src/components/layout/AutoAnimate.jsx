@@ -2,6 +2,8 @@ import {useEffect, useRef} from "react";
 import autoAnimate from "@formkit/auto-animate";
 
 
+
+
 export default function AutoAnimate(props) {
     const parentRef = useRef(null);
 

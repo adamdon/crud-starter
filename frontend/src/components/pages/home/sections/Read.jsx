@@ -1,9 +1,10 @@
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 import {useData} from "../../../../utilities/DataContextProvider.jsx";
 import ContentContainer from "../../../layout/ContentContainer.jsx";
 import AutoAnimate from "../../../layout/AutoAnimate.jsx";
 import {toast} from "react-toastify";
-import autoAnimate from "@formkit/auto-animate";
+
+
 
 
 export default function Read() {

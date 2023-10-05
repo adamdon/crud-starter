@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
 import {useData} from "../../../../utilities/DataContextProvider.jsx";
 import ContentContainer from "../../../layout/ContentContainer.jsx";
-import AutoAnimate from "../../../layout/AutoAnimate.jsx";
 import {toast} from "react-toastify";
+
+
 
 
 export default function Update(props) {

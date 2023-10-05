@@ -1,5 +1,6 @@
-import { useState } from 'react'
 import ContentContainer from "../../layout/ContentContainer.jsx";
+
+
 
 
 export default function AboutPage() {

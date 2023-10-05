@@ -1,7 +1,3 @@
-import { useState } from 'react'
-import {useData} from "../../utilities/DataContextProvider.jsx";
-
-
 export default function ContentContainer({children}) {
 
 

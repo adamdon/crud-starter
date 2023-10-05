@@ -1,11 +1,16 @@
-import 'dotenv/config'
-import express from 'express';
-import cors from 'cors';
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
 import * as database from "./utilities/database.js";
-import readAll from "./api/readAll.js";;
+import readAll from "./api/readAll.js";
 import create from "./api/create.js";
 import update from "./api/update.js";
 import deleteOne from "./api/delete.js";
+
+
+
+
+;
 
 const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017/';
 const PORT = process.env.PORT ?? 8081;
