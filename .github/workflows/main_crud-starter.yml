@@ -18,6 +18,17 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18' # Adjust to your Node.js version
+
+      - name: Install application dependencies
+        run: npm install
+
 #      - name: Download artifact from build job
 #        uses: actions/download-artifact@v2
 #        with:
