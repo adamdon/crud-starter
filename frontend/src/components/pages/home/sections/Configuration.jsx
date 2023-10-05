@@ -1,4 +1,4 @@
-import ContentContainer from "../../layout/ContentContainer.jsx";
+import ContentContainer from "../../../layout/ContentContainer.jsx";
 
 
 

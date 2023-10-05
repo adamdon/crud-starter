@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import {useData} from "../../../utilities/DataContextProvider.jsx";
-import ContentContainer from "../../layout/ContentContainer.jsx";
-import AutoAnimate from "../../../utilities/AutoAnimate.jsx";
+import {useData} from "../../../../utilities/DataContextProvider.jsx";
+import ContentContainer from "../../../layout/ContentContainer.jsx";
+import AutoAnimate from "../../../layout/AutoAnimate.jsx";
 import {toast} from "react-toastify";
 
 

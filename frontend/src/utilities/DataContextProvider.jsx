@@ -9,13 +9,7 @@ export function useData() {
 
 
 export default function DataContextProvider({children}) {
-    const [localData, setLocalData] = useState(() => {
-        // console.log("React DataContextProvider running...")
-        let data = {
-            isDisabled: false,
-        }
-        return data;
-    });
+    const [localData, setLocalData] = useState(() => ({}));
 
 
     /**
@@ -24,19 +18,17 @@ export default function DataContextProvider({children}) {
      * modify: //setData((oldData) => ({...oldData, letter: (oldData.letter + "+")}));
      */
     function setData(newData) {
-        if(newData !== undefined)
-        {
-            if(typeof newData == "function") // if arrow function is passed for modify data
-            {
+        if(newData !== undefined) {
+            if(typeof newData == "function") {
+                // if arrow function is passed for modify data
                 setLocalData(newData(localData));
             }
-            else // if object is passed for simple add/change data
-            {
+            else {
+                // if object is passed for simple add/change data
                 setLocalData(oldData =>  ({...oldData, ...newData}));
             }
         }
-        else
-        {
+        else {
             console.error("attempt to setData with undefined");
         }
     }

@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import reactLogo from '../../assets/react.svg'
+import reactLogo from '../../../assets/react.svg'
 import viteLogo from '/Users/adam/IdeaProjects/crud-starter/frontend/public/vite.svg'
 import Create from "./sections/Create.jsx";
-import ContentContainer from "../layout/ContentContainer.jsx";
-import {useData} from "../../utilities/DataContextProvider.jsx";
-import AutoAnimate from "../../utilities/AutoAnimate.jsx";
+import ContentContainer from "../../layout/ContentContainer.jsx";
+import {useData} from "../../../utilities/DataContextProvider.jsx";
+import AutoAnimate from "../../layout/AutoAnimate.jsx";
 import Read from "./sections/Read.jsx";
 import Configuration from "./sections/Configuration.jsx";
 import Update from "./sections/Update.jsx";

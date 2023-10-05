@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 
-export async function connect () {
-    const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017/';
+export let Item;
+
+export async function connect (MONGO_URI) {
 
     const mongooseModule = await mongoose.connect(MONGO_URI);
 
@@ -15,4 +16,3 @@ export async function connect () {
     await Item.deleteMany(); // delete all documents in the collection
 }
 
-export let Item

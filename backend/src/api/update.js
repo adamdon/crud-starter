@@ -1,14 +1,18 @@
 import {Item} from "../utilities/database.js";
 
+
 export default async function (req, res) {
-    // Get the item from the database
-    const item = await Item.findOne({ref: req.body.ref});
+    // const item = await Item.findOne({ref: req.body.ref});
 
-    // Update the item with the request body
-    item.name = req.body.name;
+    const filter = { ref: req.body.ref };
+    const update = {$set: {name: req.body.name}};
+    const options = { multi: true };
+    const updatedItems = await Item.updateMany(filter, update, options);
 
-    // Save the item to the database
-    await item.save();
 
-    res.send(item);
+    // item.name = req.body.name;
+    //
+    // await item.save();
+
+    res.send(updatedItems);
 }

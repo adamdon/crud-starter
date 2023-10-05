@@ -1,40 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useEffect, useState} from "react";
+import {toast, ToastContainer} from "react-toastify";
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import {useData} from "../utilities/DataContextProvider.jsx";
+import HomePage from "./pages/home/HomePage.jsx";
+import Navbar from "./layout/Navbar.jsx";
+import {Route, Routes} from "react-router-dom";
+import AboutPage from "./pages/about/AboutPage.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
+export default function App() {
+
+    const [data, setData] = useData();
+    const [isInitialized, setIsInitialized] = useState(false);
+
+    useEffect(() => initialize(), []);
+
+
+    function initialize(){
+        console.log(`crud-starter startup (╯°□°)╯︵ ┻━┻`);
+
+        const backendUrl = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8081";
+
+        const initialGlobalData = {
+            backendUrl: backendUrl,
+            isDisabled: false,
+            testText: "testhere"
+        }
+        setData(initialGlobalData);
+
+        setIsInitialized(true);
+    }
+
+
+
+
+    return (
     <>
-      <div>
-          <h1 className="text-3xl font-bold underline">
-              Hello world!
-          </h1>
-          <button className="btn">Hello daisyUI</button>
+            {isInitialized &&
+                <>
+                    <ToastContainer theme="dark" position="top-center" transition={Flip}/>
 
-          <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+                    <Navbar></Navbar>
+
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/about" element={<AboutPage />} />
+                        <Route path="*" element={<HomePage />} />
+                    </Routes>
+
+
+                    {/*<Route path="*" element={<AnimatedMount show={loaded}> <NotFoundPage /> </AnimatedMount>} />*/}
+
+
+                    {/*//TODO create router*/}
+                    {/*<HomePage></HomePage>*/}
+                </>
+            }
     </>
   )
 }
-
-export default App

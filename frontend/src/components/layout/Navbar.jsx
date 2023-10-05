@@ -1,19 +1,22 @@
-import { useState } from 'react'
-import {useData} from "../../utilities/DataContextProvider.jsx";
+import {Link} from "react-router-dom";
 
 
-export default function ContentContainer({children}) {
+
+export default function Navbar() {
 
 
     return (
     <>
-        <div className="flex justify-center">
-            <div className="card w-[800px] bg-neutral text-neutral-content mt-5">
-                <div className="card-body items-center text-center">
-
-                    {children}
-
-                </div>
+        <div className="navbar bg-neutral text-neutral-content">
+            <div className="flex-1">
+                <Link className="btn btn-ghost normal-case text-xl" to="/">crud-starter</Link>
+            </div>
+            <div className="flex-none">
+                <ul className="menu menu-horizontal px-1">
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                </ul>
             </div>
         </div>
     </>
