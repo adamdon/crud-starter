@@ -8,10 +8,7 @@ import update from "./api/update.js";
 import deleteOne from "./api/delete.js";
 
 
-
-
-;
-
+console.log("Backend start-up - config: ", process.env)
 const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017/';
 const PORT = process.env.PORT ?? 8081;
 
