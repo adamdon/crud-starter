@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: BACKEND - Deploy Node.js app to Azure Web App - crud-starter
+name: FRONTEND - Deploy Node.js app to Azure Web App - crud-starter
 
 on:
   push:
@@ -40,5 +40,5 @@ jobs:
         with:
           app-name: 'crud-starter-frontend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E2CCEEE9F6B3409D91BE2C1A6F88F3A9 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E8CD53C30ECF411394CB403F80C0D21 }}
           package: frontend
