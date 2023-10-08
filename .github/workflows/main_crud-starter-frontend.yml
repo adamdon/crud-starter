@@ -37,6 +37,8 @@ jobs:
         working-directory: frontend
         run: npm run build
 
+      - name: Login to Azure
+        uses: azure/login@v1
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -46,4 +48,3 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E8CD53C30ECF411394CB403F80C0D21 }}
           package: frontend
-          artifacts: './dist'
