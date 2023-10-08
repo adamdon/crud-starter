@@ -16,6 +16,8 @@ jobs:
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v3
+      - run: echo "Build secrets VITE_BACKEND_URL:"
+      - run: echo "${{ secrets.VITE_BACKEND_URL }}"
         with:
           submodules: true
           lfs: false
