@@ -19,14 +19,14 @@ export default function App() {
 
 
     function initialize(){
-        console.log(`crud-starter startup (╯°□°)╯︵ ┻━┻`);
-
         const backendUrl = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8081";
+
+        console.log(`crud-starter startup (╯°□°)╯︵ ┻━┻`, " ⚙️ backendUrl: ", backendUrl);
+
 
         const initialGlobalData = {
             backendUrl: backendUrl,
             isDisabled: false,
-            testText: "testhere"
         }
         setData(initialGlobalData);
 
