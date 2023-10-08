@@ -19,8 +19,8 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - run: echo "Build secrets VITE_BACKEND_URL:"
-      - run: echo "${{ secrets.VITE_BACKEND_URL }}"
+      - run: echo "env VITE_BACKEND_URL:"
+      - run: echo "${{ env.VITE_BACKEND_URL }}"
 
       - name: Build And Deploy
         id: builddeploy
