@@ -18,11 +18,11 @@ jobs:
 
     name: Build and Deploy Job
     steps:
-      - name: Inject environment variables
-        uses: actions/github-script@v5
-        with:
-          script: |
-            process.env.VITE_BACKEND_URL = ${{ secrets.VITE_BACKEND_URL }}
+#      - name: Inject environment variables
+#        uses: actions/github-script@v5
+#        with:
+#          script: |
+#            process.env.VITE_BACKEND_URL = ${{ secrets.VITE_BACKEND_URL }}
 
       - uses: actions/checkout@v3
         with:
