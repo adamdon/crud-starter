@@ -19,9 +19,12 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - run: echo "env VITE_BACKEND_URL:"
-      - run: echo "${{ env.VITE_BACKEND_URL }}"
-      - run: echo "${{ secrets.VITE_BACKEND_URL }}"
+
+      - name: Inject environment variables
+        uses: actions/github-script@v5
+        with:
+          script: |
+            process.env.VITE_BACKEND_URL = ${{ secrets.VITE_BACKEND_URL }}
 
       - name: Build And Deploy
         id: builddeploy
