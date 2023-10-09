@@ -21,11 +21,13 @@ jobs:
           lfs: false
       - run: echo "env VITE_BACKEND_URL:"
       - run: echo "${{ env.VITE_BACKEND_URL }}"
+      - run: echo "${{ secrets.VITE_BACKEND_URL }}"
 
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
+          VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_MUD_052C2F103 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
