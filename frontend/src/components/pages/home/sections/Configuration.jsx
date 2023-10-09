@@ -15,7 +15,7 @@ export default function Configuration(props) {
                 <div className="hero-content text-center">
                     <div className="max-w-md">
                         <h1 className="text-5xl font-bold">What is this?</h1>
-                        <p className="py-6">This starter project a full stack web application using a React fronend, Node.js backend and MongoDB database. It provides Create, Read, Update and Delete functionality to enable quick development of new ideas.</p>
+                        <p className="py-6">This starter project a full stack web application using a React frontend, Node.js backend and MongoDB database. It provides Create, Read, Update and Delete functionality to enable quick development of new ideas.</p>
 
                         <div className="flex justify-center">
                             <div className="form-control w-1/2">
