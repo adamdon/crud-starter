@@ -38,3 +38,5 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E2CCEEE9F6B3409D91BE2C1A6F88F3A9 }}
           package: backend
+        env: # Add environment variables here
+          MONGO_URI: = ${{ secrets.MONGO_URI }}
