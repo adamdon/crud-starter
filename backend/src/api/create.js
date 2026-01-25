@@ -1,9 +1,6 @@
-import {Item} from "../utilities/database.js";
+import { Item } from "../utilities/database.js";
 
-
-
-
-export default async function (req, res) {
+export const create = async (req, res) => {
     const item = new Item({
         ref: req.body.ref,
         name: req.body.name
@@ -12,4 +9,4 @@ export default async function (req, res) {
     await item.save();
 
     res.send(item);
-}
+};
