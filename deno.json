@@ -1,0 +1,12 @@
+{
+  "nodeModulesDir": "auto",
+  "imports": {
+    "@oak/oak": "jsr:@oak/oak@^17",
+    "@tajpouria/cors": "jsr:@tajpouria/cors@^1",
+    "mongoose": "npm:mongoose@^8",
+    "mongodb-memory-server": "npm:mongodb-memory-server@^11"
+  },
+  "tasks": {
+    "start": "deno run --env-file=.env --allow-env --allow-net --allow-read --allow-write --allow-run --allow-sys src/server.ts"
+  }
+}
