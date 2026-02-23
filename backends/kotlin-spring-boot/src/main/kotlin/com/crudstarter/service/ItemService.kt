@@ -6,6 +6,10 @@ import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
 import org.springframework.data.mongodb.core.query.Update
+import org.springframework.data.mongodb.core.remove
+import org.springframework.data.mongodb.core.updateMulti
+import com.mongodb.client.result.DeleteResult
+import com.mongodb.client.result.UpdateResult
 import org.springframework.stereotype.Service
 
 @Service
@@ -14,18 +18,32 @@ class ItemService(
     private val mongoTemplate: MongoTemplate
 ) {
 
-    fun readAll(): List<Item> = repository.findAll()
+    fun readAll(): List<Item> {
+        val items: List<Item> = repository.findAll()
 
-    fun create(item: Item): Item = repository.save(item)
+        return items
+    }
 
-    fun update(item: Item): Long = mongoTemplate.updateMulti(
-        Query.query(Criteria.where("ref").`is`(item.ref)),
-        Update().set("name", item.name),
-        Item::class.java
-    ).modifiedCount
+    fun create(item: Item): Item {
+        val savedItem: Item = repository.save(item)
 
-    fun delete(item: Item): Long = mongoTemplate.remove(
-        Query.query(Criteria.where("ref").`is`(item.ref)),
-        Item::class.java
-    ).deletedCount
+        return savedItem
+    }
+
+    fun update(item: Item): Long {
+        val criteria: Criteria = Criteria.where("ref").`is`(item.ref)
+        val query: Query = Query.query(criteria)
+        val update: Update = Update().set("name", item.name)
+        val result: UpdateResult = mongoTemplate.updateMulti<Item>(query, update)
+
+        return result.modifiedCount
+    }
+
+    fun delete(item: Item): Long {
+        val criteria: Criteria = Criteria.where("ref").`is`(item.ref)
+        val query: Query = Query.query(criteria)
+        val result: DeleteResult = mongoTemplate.remove<Item>(query)
+
+        return result.deletedCount
+    }
 }
