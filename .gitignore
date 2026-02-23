@@ -28,6 +28,10 @@ dist
 dist-ssr
 *.local
 
+# Kotlin / Gradle
+build/
+.gradle/
+
 # Editor / OS
 .vscode/
 .DS_Store
