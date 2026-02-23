@@ -26,7 +26,7 @@ jobs:
           node-version: '18'
 
       - name: Install application dependencies
-        working-directory: backend
+        working-directory: backends/node-js-express
         run: npm install
 
 
@@ -37,6 +37,6 @@ jobs:
           app-name: 'crud-starter'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E2CCEEE9F6B3409D91BE2C1A6F88F3A9 }}
-          package: backend
+          package: backends/node-js-express
         env: # Add environment variables here
           MONGO_URI: ${{ secrets.MONGO_URI }}
